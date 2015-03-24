@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="text_bg">@android:color/holo_blue_light</item>
+        <item name="text_font_color">@android:color/white</item>
+    </style>
+</resources>
