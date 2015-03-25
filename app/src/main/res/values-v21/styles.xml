@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
-        <item name="text_bg">@android:color/holo_blue_light</item>
-        <item name="text_font_color">@android:color/white</item>
+    <!--
+    因為使用了ActionBarActivity所以這裡必須用Theme.AppCompat.Light.NoActionBar
+    如用android:Theme.Material.Light.NoActionBar,
+    會報java.lang.RuntimeException: Unable to start activity ComponentInfo
+    {com.zj.example.material.drawerlayout/com.zj.example.material.drawerlayout.MyActivity}:
+    java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity.
+    -->
+
+    <!--因為使用了ActionBarActivity所以這裡必須用Theme,所以這裡必須用Theme.AppCompat.Light.NoActionBar-->
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--頂部状态栏颜色-->
+        <item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>
+        <!--Toolbar颜色-->
+        <item name="colorPrimary">@color/Indigo_colorPrimary</item>
+        <!--返回键样式-->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+
+        <!--NavigationBar的背景顏色,v21以上的手機才可以設置-->
+        <item name="android:navigationBarColor">@color/Indigo_colorPrimaryDark</item>
+    </style>
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
     </style>
 </resources>
