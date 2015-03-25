@@ -9,7 +9,7 @@
     -->
 
     <!--因為使用了ActionBarActivity所以這裡必須用Theme,所以這裡必須用Theme.AppCompat.Light.NoActionBar-->
-    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!--頂部状态栏颜色-->
         <item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>
