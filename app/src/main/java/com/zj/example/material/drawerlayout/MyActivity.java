@@ -37,23 +37,11 @@ public class MyActivity extends ActionBarActivity {
 
         initView();
         initToolbar();
+        initDrawerToggle();
         initData();
     }
 
-    private void initData() {
-        mAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mItems);
-        mListView.setAdapter(mAdapter);
-    }
-
-    private void initToolbar() {
-        mToolbar.setTitle("Toolbar");
-        mToolbar.setTitleTextColor(Color.WHITE);
-
-        setSupportActionBar(mToolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);//设置返回键可用
-
+    private void initDrawerToggle() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,
                 R.string.open, R.string.close){
 
@@ -70,6 +58,21 @@ public class MyActivity extends ActionBarActivity {
 
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+    }
+
+    private void initData() {
+        mAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mItems);
+        mListView.setAdapter(mAdapter);
+    }
+
+    private void initToolbar() {
+        mToolbar.setTitle("Toolbar");
+        mToolbar.setTitleTextColor(Color.WHITE);
+
+        setSupportActionBar(mToolbar);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);//设置返回键可用
     }
 
     private void initView() {

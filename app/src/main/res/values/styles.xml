@@ -1,7 +1,21 @@
 <resources>
 
     <!-- Base application theme. android:Theme.Holo.Light.DarkActionBar-->
-        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--
+        因為使用了ActionBarActivity所以這裡必須用Theme,所以這裡必須用Theme.AppCompat.Light.NoActionBar,
+        如果不用NoActonBar則要設置
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    -->
+    <!--如果用Theme.AppCompat.Light,那actionBar的overflow按鈕(更多按鈕)會是深色的,可以設置colorControlNormal-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>-->
+
+        <!--ActionBar中的menu菜單顏色-->
+        <item name="colorControlNormal">@android:color/holo_green_light</item>
+
         <!-- Customize your theme here. -->
         <!--状态栏颜色-->
         <item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>

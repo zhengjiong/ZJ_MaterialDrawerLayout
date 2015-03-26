@@ -3,5 +3,20 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
-    zj:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+    />
+   <!--
+        zj:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        可以讓ActionBar中的Menu變成白色,
+        這裡如果設置了那style中的colorControlNormal就會不起作用
+   />-->
+
+    <!--
+    android:minHeight="?android:attr/actionBarSize"
+    是引用android-21\data\res\values中的actionBarSize
+
+
+    android:minHeight="?attr/actionBarSize"
+    是引用com.android.support\appcompat-v7\21.0.2\res\values中的actionBarSize
+    -->
