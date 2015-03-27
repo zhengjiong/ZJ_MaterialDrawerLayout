@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!--NavigationBar(下方导航栏底色)背景顏色,v21以上的手機才可以設置-->
+        <item name="android:navigationBarColor">@color/Indigo_colorPrimaryDark</item>
+    </style>
+</resources>

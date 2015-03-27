@@ -15,12 +15,12 @@
         <item name="android:windowNoTitle">true</item>
     -->
     <!--如果用Theme.AppCompat.Light,那actionBar的overflow按鈕(更多按鈕)會是深色的,可以設置colorControlNormal-->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
 
-        <!--ActionBar中的menu菜單顏色-->
+        <!--ActionBar中的menu顏色-->
         <item name="colorControlNormal">@android:color/holo_green_light</item>
 
         <!--主视窗底色：windowBackground-->
@@ -28,15 +28,16 @@
 
         <!--頂部状态栏颜色-->
         <item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>
-        <!--Toolbar颜色-->
+        <!--actionbar的顏色,因為ToolBar設置了android:background="?attr/colorPrimary",所以背景色和actionbar一致-->
         <item name="colorPrimary">@color/Indigo_colorPrimary</item>
         <!--返回键样式-->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
 
-        <!--NavigationBar(下方导航栏底色)背景顏色,v21以上的手機才可以設置-->
-        <item name="android:navigationBarColor">@color/Indigo_colorPrimaryDark</item>
     </style>
     <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base">
     </style>
 </resources>
