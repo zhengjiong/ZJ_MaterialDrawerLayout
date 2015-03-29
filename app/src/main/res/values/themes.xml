@@ -17,25 +17,44 @@
     <!--如果用Theme.AppCompat.Light,那actionBar的overflow按鈕(更多按鈕)會是深色的,可以設置colorControlNormal-->
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
+        <!--如果沒有用NoActionBar,就必須設置windowActionBar=false-->
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
 
-        <!--ActionBar中的menu顏色-->
-        <item name="colorControlNormal">@android:color/holo_green_light</item>
+        <!--
+        colorControlNormal:
+        各控制元件(如：check box、switch 或是 radoi) 被勾选 (checked) 或是选定 (selected) 的颜色。
 
-        <!--主视窗底色：windowBackground-->
-        <item name="android:windowBackground">@color/dim_foreground_material_dark</item>
+        windowBackground:
+        各控制元件的预设颜色。
+        -->
+
+        <!--各控制元件的预设颜色,ActionBar中的menu和NavigationIcon顏色,各控制元件(如：check box、switch 或是 radoi) 未被勾选 (unchecked) 或是未被选定 (unselected) 的颜色。)-->
+        <item name="colorControlNormal">#45ff45</item>
+
+        <!--colorControlActivated和colorAccent都可以設置元件的選中的颜色和progressbar的顏色,ActionBar中的menu顏色,各控制元件(如：check box、switch 或是 radoi) 被勾选 (checked) 或是选定 (selected) 的颜色。)-->
+        <!--<item name="colorControlActivated">#42f3f3</item>-->
+        <item name="colorAccent">#f34242</item>
+
+        <!--SwitchCompat的初始化顏色-->
+        <item name="colorSwitchThumbNormal">#b4db58</item>
+        <!-- colorAccent is used as the default value for
+        colorControlActivated which is used to tint widgets. -->
+
+        <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+
+        <!-- You can also set colorControlNormal, colorControlActivated
+             colorControlHighlight & colorSwitchThumbNormal. -->
+
+        <!--windowBackground: App 的背景色。-->
+        <item name="android:windowBackground">@android:color/holo_orange_light</item>
 
         <!--頂部状态栏颜色-->
         <item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>
+
         <!--actionbar的顏色,因為ToolBar設置了android:background="?attr/colorPrimary",所以背景色和actionbar一致-->
         <item name="colorPrimary">@color/Indigo_colorPrimary</item>
-        <!--返回键样式-->
-        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
-
-    </style>
-    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/white</item>
     </style>
 
     <style name="AppTheme" parent="AppTheme.Base">

@@ -1,6 +1,5 @@
 package com.zj.example.material.drawerlayout;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -19,7 +18,7 @@ import android.widget.ListView;
  * Date: 2015-03-25
  * Time: 22:16
  */
-public class MyActivity extends ActionBarActivity {
+public class DrawerDemoActivity extends ActionBarActivity {
     private String[] mItems = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
 
     private Toolbar mToolbar;
@@ -32,7 +31,7 @@ public class MyActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
+        setContentView(R.layout.drawer_demo_layout);
 
 
         initView();
@@ -67,7 +66,8 @@ public class MyActivity extends ActionBarActivity {
 
     private void initToolbar() {
         mToolbar.setTitle("Toolbar");
-        mToolbar.setTitleTextColor(Color.WHITE);
+        //這裡不用設置toolbar的color,在style中用textColorPrimary
+        //mToolbar.setTitleTextColor(Color.WHITE);
 
         setSupportActionBar(mToolbar);
 

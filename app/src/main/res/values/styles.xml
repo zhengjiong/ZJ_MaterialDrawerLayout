@@ -6,9 +6,61 @@
         <item name="android:textColor">@android:color/holo_orange_dark</item>
     </style>
     <!--
-        TextTheme.Large會自動繼承TextTheme的屬性
+        TextTheme.Large會自動繼承TextTheme的屬性,相當於parent="TextTheme"
     -->
     <style name="TextTheme.Large">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ToolbarDarkOverflow" parent="Theme.AppCompat.NoActionBar">
+        <!--actionbar的顏色,因為ToolBar設置了android:background="?attr/colorPrimary",所以背景色和actionbar一致-->
+        <item name="colorPrimary">@color/Indigo_colorPrimary</item>
+
+        <!-- android:textColorPrimary is the  color of the title text
+               in the Toolbar, in the Theme.AppCompat theme:  -->
+        <!--Toolbar的title顏色,和overflow popupmenu中文字的顏色,如果toolbar設置了popupTheme,那此設置不會改變popupmenu的文字顏色-->
+        <item name="android:textColorPrimary">#40ff79</item>
+
+        <!-- android:textColorPrimaryInverse is the  color of the title
+             text in the Toolbar, in the Theme.AppCompat.Light theme:  -->
+        <!-- <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item> -->
+
+
+        <!-- android:actionMenuTextColor is the color of the text of
+              action (menu) items in the Toolbar, at least in the
+              Theme.AppCompat theme.
+              For some reason, they already get the textColorPrimary
+              when running on API 21, but not on older versions of
+              Android, so this is only necessary to support older
+              Android versions.-->
+        <!--Toolbar中menu items的顏色-->
+        <item name="actionMenuTextColor">#f3f31e</item>
+
+        <!-- android:textColorSecondary is the color of the menu
+             overflow icon (three vertical dots) -->
+        <!--
+        android:textColorSecondary和colorControlNormal,都可以設置overflow icon,
+        drawer icon,Navigation icon,還有Logo的顏色
+        具體區別還不清楚
+        http://www.murrayc.com/permalink/2014/10/28/android-changing-the-toolbars-text-color-and-overflow-icon-color/
+        -->
+        <item name="android:textColorSecondary">#ff45ff</item>
+        <!--<item name="colorControlNormal">#ff45ff</item>-->
+
+
+        <!--這裡不能設置android:background,不然也會改變popupMenu的背景-->
+        <!-- This would set the toolbar's background color,
+              but setting this also changes the popup menu's background,
+              even if we define popupTheme for our <Toolbar> -->
+        <!-- <item name="android:background">@color/color_primary</item> -->
+
+
+        <!--Drawer Arrow样式-->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <!--Drawer Arrow的顏色-->
+        <item name="color">@android:color/holo_red_dark</item>
     </style>
 </resources>
