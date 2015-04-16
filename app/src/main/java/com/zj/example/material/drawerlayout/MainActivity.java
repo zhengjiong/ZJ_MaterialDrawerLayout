@@ -70,6 +70,8 @@ public class MainActivity extends ActionBarActivity{
                 case 2:
                     startActivity(new Intent(MainActivity.this, WidgetDemoActivity.class));
                     break;
+                default:
+                    break;
             }
         }
     }

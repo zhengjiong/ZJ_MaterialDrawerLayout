@@ -32,3 +32,4 @@ proguard/
 
 # Log Files
 *.log
+app/src/androidTest
