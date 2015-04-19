@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+必須使用最下面的佈局方式,如果使用此方式會讓Toolbar跑到最頂部,StatusBar會在ToolBar的下方,drawer也會在Toolbar的下方
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/custom_toolbar"/>
+
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextTheme.Large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="toolbar demo"/>
+        </LinearLayout>
+
+        <com.zj.example.material.drawerlayout.ScrimInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="304dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:fitsSystemWindows="true"
+            app:insetForeground="#4000">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    android:src="@drawable/drawer_header"
+                    android:scaleType="centerCrop"
+                    />
+                <ListView
+                    android:id="@+id/listview_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:cacheColorHint="@android:color/transparent"/>
+            </LinearLayout>
+        </com.zj.example.material.drawerlayout.ScrimInsetsFrameLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>-->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <!--fitsSystemWindows属性设置了为true，代表允許Drawer修改StatusBar的顏色,
+    如果不加setStatusBarBackgroundColor不會生效,
+    我们要在代码里面使用了DrawerLayout设置status bar颜色的方法：
+    mDrawerLayout.setStatusBarBackgroundColor(color);-->
+
+
+    <!--主布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_toolbar" />
+        <TextView
+            style="@style/TextTheme.Large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="toolbar demo"/>
+    </LinearLayout>
+
+
+    <!--側滑菜單-->
+    <!-- The navigation drawer -->
+    <!--
+    在这里布局里面我们用到了一个的开源类ScrimInsetsFrameLayout，https://github.com/google/iosched/blob/master/android/src/main/java/com/google/samples/apps/iosched/ui/widget/ScrimInsetsFrameLayout.java
+    它的主要作用就是利用fitsSystemWindows的回调方法fitSystemWindows(Rect insets)
+    来获取status bar的大小，然后调整画布以达到去掉status bar的效果，
+    所以我们需要在ScrimInsetsFrameLayout下设置fitsSystemWindows为true。
+    当然你也可以不使用这个类，而改用layout_marginTop属性来达到效果。
+    -->
+    <com.zj.example.material.drawerlayout.ScrimInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="304dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:elevation="10dp"
+        android:fitsSystemWindows="true"
+        app:insetForeground="#4000">
+        <!--
+        app:insetForeground="#4000", 讓Drawer劃過來的時候,Status上覆蓋一層黑色的陰影
+        -->
+
+
+        <!--
+        如果不使用ScrimInsetsFrameLayout,可以在LinearLayout用下面3行代碼代替,但是marginTop
+        設置成多少暫時還不知道應該怎麼計算所以還是使用ScrimInsetsFrameLayout最好
+
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="-25dp"
+        android:layout_gravity="start"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:src="@drawable/drawer_header"
+                android:scaleType="centerCrop"
+                />
+            <ListView
+                android:id="@+id/listview_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"/>
+        </LinearLayout>
+    </com.zj.example.material.drawerlayout.ScrimInsetsFrameLayout>
+
+</android.support.v4.widget.DrawerLayout>

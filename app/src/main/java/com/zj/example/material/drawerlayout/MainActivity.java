@@ -2,12 +2,14 @@ package com.zj.example.material.drawerlayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 /**
  * 需要注意:
@@ -19,20 +21,16 @@ import android.widget.ListView;
  */
 public class MainActivity extends ActionBarActivity{
 
-
-    private String[] data = new String[]{
-        "ToolBar Demo",
-        "DrawerLayout Demo",
-        "Widget Demo"
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.place_holder, new MyListFragment())
+                .commit();
+
         initToolBar();
-        initListview();
     }
 
     private void initToolBar() {
@@ -45,35 +43,61 @@ public class MainActivity extends ActionBarActivity{
         //toolbar.setNavigationIcon(R.drawable.abc_ic_menu_share_mtrl_alpha);
     }
 
-    private void initListview() {
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
-        ListView listview = (ListView) findViewById(R.id.listview);
-        listview.setAdapter(adapter);
+    public static class MyListFragment extends ListFragment{
+        private String[] data = new String[]{
+                "ToolBar Demo",
+                "DrawerLayout Demo",
+                "Widget Demo",
+                "SystemBar Demo"
+        };
 
-        listview.setOnItemClickListener(new OnListItemClickListener());
-    }
+        private View mRootView;
 
-    class OnListItemClickListener implements AdapterView.OnItemClickListener{
+        public MyListFragment(){}
 
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            switch (position) {
-                case 0:
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            mRootView = inflater.inflate(R.layout.main_fragment_layout, null);
+            return mRootView;
+        }
+
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+
+            initListview();
+        }
+
+        private void initListview() {
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, data);
+            getListView().setAdapter(adapter);
+            getListView().setOnItemClickListener(new OnListItemClickListener());
+        }
+
+        class OnListItemClickListener implements AdapterView.OnItemClickListener{
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
                     /*ActivityOptionsCompat optionsCompat = new ActivityOptionsCompat().makeSceneTransitionAnimation(
                             MainActivity.this,
                             null, ToolbarDemoActivity.);*/
-                    startActivity(new Intent(MainActivity.this, ToolbarDemoActivity.class));
-                    break;
-                case 1:
-                    startActivity(new Intent(MainActivity.this, DrawerDemoActivity.class));
-                    break;
-                case 2:
-                    startActivity(new Intent(MainActivity.this, WidgetDemoActivity.class));
-                    break;
-                default:
-                    break;
+                        startActivity(new Intent(getActivity(), ToolbarDemoActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getActivity(), DrawerDemoActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getActivity(), WidgetDemoActivity.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(getActivity(), DrawerDemo2Activity.class));
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
-
 }

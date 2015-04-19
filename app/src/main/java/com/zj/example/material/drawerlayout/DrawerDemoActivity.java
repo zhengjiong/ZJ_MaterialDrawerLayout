@@ -26,7 +26,7 @@ public class DrawerDemoActivity extends ActionBarActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mListView;
 
-    private ArrayAdapter mAdapter;
+    private ArrayAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +55,18 @@ public class DrawerDemoActivity extends ActionBarActivity {
             }
         };
 
-        mDrawerToggle.syncState();
+        mDrawerToggle.syncState();//加上這句話才可以顯示出三條線的NavigationIcon
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     private void initData() {
-        mAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mItems);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItems);
         mListView.setAdapter(mAdapter);
     }
 
     private void initToolbar() {
         mToolbar.setTitle("Toolbar");
-        //這裡不用設置toolbar的color,在style中用textColorPrimary
+        //這裡不用設置toolbar的titleColor,在style中用textColorPrimary
         //mToolbar.setTitleTextColor(Color.WHITE);
 
         setSupportActionBar(mToolbar);

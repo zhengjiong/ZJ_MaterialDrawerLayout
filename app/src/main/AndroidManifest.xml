@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".ToolbarDemoActivity"/>
         <activity android:name=".WidgetDemoActivity"/>
+        <activity android:theme="@style/DrawerDemo2Theme" android:name=".DrawerDemo2Activity"/>
     </application>
 
 </manifest>
