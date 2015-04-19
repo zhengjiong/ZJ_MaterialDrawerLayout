@@ -9,6 +9,9 @@
     app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
     />
     <!--
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
     app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
     app:popupTheme的作用是設置toolbar在那個點擊會彈出的菜單的主題,
     比如說overflow按鈕彈出的popupMenu
