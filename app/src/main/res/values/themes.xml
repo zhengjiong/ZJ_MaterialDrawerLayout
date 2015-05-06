@@ -19,7 +19,8 @@
         <!-- Customize your theme here. -->
         <!--如果沒有用NoActionBar,就必須設置windowActionBar=false-->
         <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <item name="windowNoTitle">true</item>
 
 		<!--讓ActionBar的空間可以被下面的listview佔用-->
         <!--<item name="android:windowActionBarOverlay">true</item>-->
